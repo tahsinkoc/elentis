@@ -21,8 +21,8 @@ To use this library, you need to have Deno installed on your machine. You can do
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/tahsinkoc/elentis.git
+   cd elentis
    
 2. Create your API structure in the api folder. Each folder can have an index.ts file that exports a request handler function.
 
