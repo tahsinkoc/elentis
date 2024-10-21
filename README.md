@@ -1,4 +1,4 @@
-# Deno REST API Library
+# ELENTIS REST API Library for Deno runtime
 
 ## Overview
 
