@@ -7,7 +7,7 @@ async function handle(req: Request): Promise<Response> {
 
 }
 
-const PORT:number = 3000;
+const PORT: number = 3000;
 
-Deno.serve({handler: handle, port: PORT});
+Deno.serve({ handler: handle, port: PORT });
 console.log(`Server deployed at ${PORT}`);

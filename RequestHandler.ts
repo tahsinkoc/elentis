@@ -1,39 +1,37 @@
-interface Route {
-    pathname: string;
-    method: 'POST' | 'GET' | 'PUT' | 'DELETE';
-    function: Function;
-}
-
 interface ApiModule {
     pathname: string;
-    method: 'POST' | 'GET' | 'PUT' | 'DELETE';
-    function: Function;
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+    function: (req:Request) => Promise<Response>;
 }
 
-async function loadApiModules(directory: string): Promise<ApiModule[]> {
+async function loadApiModules(directory: string, basePath = ''): Promise<ApiModule[]> {
     const modules: ApiModule[] = [];
     for await (const entry of Deno.readDir(directory)) {
         if (entry.isDirectory) {
             const folderPath = `${directory}/${entry.name}`;
-            const indexFilePath = `${folderPath}/index.ts`;
+            const newPath = basePath ? `${basePath}/${entry.name}` : `/${entry.name}`;
 
+            const indexFilePath = `${folderPath}/index.ts`;
             try {
                 await Deno.stat(indexFilePath);
 
                 const module = await import(indexFilePath);
 
-                if (typeof module.default === 'function' && module.method) {
+                if (typeof module.default === 'function' && typeof module.method === 'string') {
                     modules.push({
-                        pathname: `/${entry.name}`,
-                        method: module.method,
+                        pathname: newPath,
+                        method: module.method.toUpperCase() as 'GET' | 'POST' | 'PUT' | 'DELETE',
                         function: module.default,
                     });
                 } else {
-                    console.warn(`${indexFilePath} uygun bir fonksiyon ve method export etmiyor!`);
+                    console.warn(`${indexFilePath} bir fonksiyon ve method export etmiyor!`);
                 }
-            } catch (error) {
-                console.warn(`Error loading module from ${indexFilePath}:`, error);
+            } catch {
+                //
             }
+
+            const subModules = await loadApiModules(folderPath, newPath);
+            modules.push(...subModules);
         }
     }
 
@@ -43,7 +41,9 @@ async function loadApiModules(directory: string): Promise<ApiModule[]> {
 export async function RequestHandler(req: Request): Promise<Response> {
     const apiModules = await loadApiModules('./api');
     const url = new URL(req.url);
-    const target = apiModules.find(route => route.pathname === url.pathname && route.method === req.method);
+    const pathname = url.pathname;
+
+    const target = apiModules.find(route => route.pathname === pathname && route.method === req.method);
 
     if (target) {
         return target.function(req);
