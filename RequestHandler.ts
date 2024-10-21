@@ -1,7 +1,7 @@
 interface ApiModule {
     pathname: string;
     method: 'GET' | 'POST' | 'PUT' | 'DELETE';
-    function: (req:Request) => Promise<Response>;
+    function: (req:Request) => Response;
 }
 
 async function loadApiModules(directory: string, basePath = ''): Promise<ApiModule[]> {

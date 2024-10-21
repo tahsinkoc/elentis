@@ -1,4 +1,4 @@
-interface Weather {
+export interface Weather {
     weather: 'Cloudy' | 'Rainy' | 'Sunny' | 'Clear',
     temp: number,
     humidty: number
