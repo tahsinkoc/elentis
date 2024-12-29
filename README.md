@@ -1,8 +1,8 @@
-# ELENTIS REST API Library for Deno runtime
+# ELENTIS REST API Tool for Deno runtime
 
 ## Overview
 
-This is a Deno runtime REST API library that provides a simple way to create RESTful APIs with folder-based routing. The library allows you to easily organize your API endpoints and handle requests with ease.
+This is a Deno runtime REST API Tool that provides a simple way to create RESTful APIs with folder-based routing. The library allows you to easily organize your API endpoints and handle requests with ease.
 
 ## Features
 
@@ -14,7 +14,7 @@ This is a Deno runtime REST API library that provides a simple way to create RES
 
 ## Installation
 
-To use this library, you need to have Deno installed on your machine. You can download it from [Deno's official website](https://deno.land/).
+To use this Tool, you need to have Deno installed on your machine. You can download it from [Deno's official website](https://deno.land/).
 
 ## Usage
 
