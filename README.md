@@ -40,17 +40,19 @@ Here’s a simple example of how to set up an API endpoint:
 
 ```ts
 // api/weather/index.ts
-export default async function GET(req: Request) {
-    const response = {
-        weather: 'Sunny',
-        temperature: 25,
-    };
-    return new Response(JSON.stringify(response), {
-        headers: {
-            "Content-Type": 'application/json',
+import { getWeather } from "../../components/CreateWeather.ts";
+
+export default function GET() {
+    const weather = getWeather();
+    return new Response(JSON.stringify(weather), {
+        'headers': {
+            'Content-Type': 'application/json'
         },
-    });
+        status: 200
+    })
 }
+
+export const method = 'GET';
 ```
 
 ## Testing
