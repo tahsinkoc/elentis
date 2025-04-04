@@ -1,0 +1,22 @@
+[
+  {
+    "pathname": "/search",
+    "method": "GET",
+    "modulePath": "search/index.ts"
+  },
+  {
+    "pathname": "/weather",
+    "method": "GET",
+    "modulePath": "weather/index.ts"
+  },
+  {
+    "pathname": "/weather/city",
+    "method": "GET",
+    "modulePath": "weather/city/index.ts"
+  },
+  {
+    "pathname": "/login",
+    "method": "POST",
+    "modulePath": "login/index.ts"
+  }
+]
