@@ -1,11 +1,7 @@
-// import { RequestHandler } from "./RequestHandler.ts";
-import { RequestHandler } from "./mts.ts";
-
+import { RequestHandler } from "./RequestHandler.ts";
 
 async function handle(req: Request): Promise<Response> {
-
   return await RequestHandler(req);
-
 }
 
 const PORT: number = 3000;
