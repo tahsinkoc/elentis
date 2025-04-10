@@ -25,8 +25,10 @@ To use this Tool, you need to have Deno installed on your machine. You can downl
    cd elentis
    
 2. Create your API structure in the api folder. Each folder can have an index.ts file that exports a request handler function.
-
-3. Start the server
+3. Build Routes
+    ```bash
+   deno run -A build.ts
+4. Start the server
     ```bash
    deno run --allow-net main.ts
 5. Acces the API endpoints.
