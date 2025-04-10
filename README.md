@@ -67,5 +67,43 @@ deno test --allow-read --allow-net
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
 
+# 🛣️ Elentis Roadmap
+
+Elentis is a Deno-based, minimal, file-system routed REST API tool. While it is currently simple and functional, it is open to contributions as an open-source project and is highly adaptable for further development.
+
+## 🔧 Core Developments (v0.2.x)
+
+- [ ] `config()` function: Centralized management of global settings such as headers, logger, and CORS.
+- [ ] `use()` function: Middleware support that applies to all requests.
+- [ ] `RequestHelper` class: Helper functions for `searchParams`, `formData`, `json()`, etc.
+- [ ] `ResponseHelper` class: Standardized response structures (e.g., `ok()`, `error()`).
+- [ ] Custom 404 and 500 handler mechanisms.
+- [ ] CLI interface (e.g., `elentis dev` for development command).
+
+## 📦 Advanced Features (v0.3.x and beyond)
+
+- [ ] Schema validation integration (e.g., Zod, Valibot, etc.).
+- [ ] Route-based middleware support.
+- [ ] Project-specific configuration using the `elentis.config.ts` file.
+- [ ] `ElentisAdapter` for compatibility with different HTTP servers (e.g., Aleph.js, Deno Fresh, etc.).
+
+## ✅ Open for Contributions
+
+> This section contains suitable entry points for developers looking to contribute.
+
+- [ ] Design and implementation of the `RequestHelper` class.
+- [ ] Creation of the `config()` singleton structure.
+- [ ] Simple middleware example (e.g., request logger).
+- [ ] Centralization of CORS settings.
+- [ ] Helper functions or class for `searchParams`.
+- [ ] Expanding example usage scenarios in the README.
+- [ ] Setting up test infrastructure (`Deno.test`).
+
+---
+
+We welcome all contributions! 🙌  
+Feel free to open issues, submit pull requests, or reach out to discuss ideas.
+
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
